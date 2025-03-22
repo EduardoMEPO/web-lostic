@@ -1,0 +1,123 @@
+/* Reset básico para evitar diferencias entra navegadores */
+*{
+    margin: 0; /* elimina los espacios predeterminados de los navegadores */
+    padding: 0; /* elimina los espacios predeterminados de los navegadores */
+    box-sizing: border-box; /* hace que el tamaño de los elementos incluya el borde y padding dentro del ancho/alto */
+    font-family: Arial, sans-serif; /* define la fuente del texto en toda la página */
+}
+
+/* Estilos generales */
+body{
+    background-color: #111; /* pone el fondo negro oscuro */
+    color:#fff; /* cambia el color del texto a blanco */
+    text-align: center; /* centra el texto dentro de cada sección */
+}
+
+/* Estilo del header (barra superior con el título y menú) */
+header{
+    background-color: #222; /* pone un fondo gris oscuro en la barra superior */
+    padding: 20px; /* agrega espacio interno para que el contenido no se vea pegado */
+    position: fixed; /* hace que el header se quede fijo arriba al hacer scroll */
+    width: 100%; /* asegura que el header cubra todo el ancho de la pantalla */
+    top: 0; /* posiciona el header en la parte superior izquierda */
+    left: 0; /* posiciona el header en la parte superior izquierda */
+    z-index: 1000; /* pone la barra encima de todo (para que no quede oculta por otros elementos) */
+}
+
+/* Estilos del botón hamburguesa */
+.menu-toggle {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none; /* Oculto en pantallas grandes */
+}
+
+/* Estilos del menú */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+/* Estilos específicos para móviles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Mostrar el botón hamburguesa */
+    }
+
+    nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: none; /* Oculto por defecto */
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .menu li {
+        padding: 15px;
+    }
+
+    .menu.active {
+        display: flex; /* Muestra el menú cuando tiene la clase "active" */
+    }
+}
+
+
+/* Título dentro del header */
+header h1 {
+    font-size: 28px; /* hace que el texto del título sea más grande */
+}
+
+/* Menú de navegación */
+nav ul{
+    list-style: none; /* quita los puntitos de la lista <ul> */
+    display: flex; /* convierte la lista en flexbox, permitiendo organizar los elementos de manera horizontal */
+    justify-content: center; /* centra los elementos del menú en la barra */
+    padding: 20px 0; /* agrega espacio vertical */
+}
+
+/* Estilos de los botones del menú */
+nav ul li {
+    margin: 0 15px; /* separa cada botón del menú para que no se vean pegados */
+}
+
+nav ul li a {
+    text-decoration: none; /* elimina el subrayado de los enlaces */
+    color: #ffcc00; /* hace que los textos de los botones sean amarillos */
+    font-weight: bold; /* hace que el texto sea negrita */
+    transition: 0.3s; /* hace que los cambios de color sean suaves en 0.3 segundos */
+}
+
+/* Efecto hover (cuando pasas el mouse sobre el menú) */
+nav ul li a:hover { /* :hover -> se cambia el color cuando se pasa el mouse por ahí */
+    color: #ff6600; /* Cuando el usuario pasa el mouse sobre un botón, cambia de amarillo a naranja */
+}
+
+/* Estilos de las secciones de la página */
+section {
+    padding: 140px 20px; /* agrega espacio arriba/abajo para que el contenido no esté pegado */
+    min-height: 100vh; /* asegura que cada sección ocupe al menos toda la pantalla */
+    border-bottom: 1px solid #444; /* añade una línea gris entre secciones para separarlas visualmente */
+}
+
+/* Footer (pie de página)*/
+footer {
+    background-color: #222; /* pone un fondo oscuro en el footer */
+    padding: 20px; /* agrega espacio dentro para que no se vea apretado */
+    font-size: 14px; /* hace que el texto del footer sea un poco más pequeño */
+}
