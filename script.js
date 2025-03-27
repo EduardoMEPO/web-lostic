@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Cambia color del header al hacer scroll
     window.addEventListener("scroll", function () {
         if (window.scrollY > 50) {
-            header.style.backgroundColor = "#000";
+            header.classList.add("shrink"); // Agrega la clase que hace el header más pequeño
         } else {
-            header.style.backgroundColor = "#222";
+            header.classList.remove("shrink"); // Vuelve al tamaño normal
         }
     });
 

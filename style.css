@@ -22,6 +22,22 @@ header{
     top: 0; /* posiciona el header en la parte superior izquierda */
     left: 0; /* posiciona el header en la parte superior izquierda */
     z-index: 1000; /* pone la barra encima de todo (para que no quede oculta por otros elementos) */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Cuando el header se haga más pequeño */
+header.shrink {
+    padding: 10px, 0;
+    background-color: rgba(0,0,0,0.9); /* Un poco más transparente */
+}
+
+header h1 {
+    font-size: 24px;
+    transition: all 0.3s ease; /* Suaviza el cambio de tamaño */
+}
+
+header.shrink h1 {
+    font-size: 18px; /* Reduce el tamaño del título */
 }
 
 /* Estilos del botón hamburguesa */
@@ -32,6 +48,10 @@ header{
     color: white;
     cursor: pointer;
     display: none; /* Oculto en pantallas grandes */
+    position: absolute; /* Lo posiciona de forma independiente */
+    top: 15px; /* Lo coloca más arriba */
+    right: 20px; /* Lo coloca en la esquina superior derecha */
+    z-index: 1000; /* Lo pone al frente de todo */
 }
 
 /* Estilos del menú */
@@ -78,7 +98,7 @@ header{
 
 /* Título dentro del header */
 header h1 {
-    font-size: 28px; /* hace que el texto del título sea más grande */
+    font-size: 38px; /* hace que el texto del título sea más grande */
 }
 
 /* Menú de navegación */
@@ -113,9 +133,51 @@ section {
     border-bottom: 1px solid #444; /* añade una línea gris entre secciones para separarlas visualmente */
 }
 
+img {
+    width: 100%;
+    max-width: 400px; /* Para que no se agrande demasiado */
+    height: auto;
+    display: block;
+    margin: 10px auto; /* Centra las imágenes */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+video {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 20px auto; /* Centra las imágenes */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
 /* Footer (pie de página)*/
 footer {
     background-color: #222; /* pone un fondo oscuro en el footer */
     padding: 20px; /* agrega espacio dentro para que no se vea apretado */
     font-size: 14px; /* hace que el texto del footer sea un poco más pequeño */
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden; /* Oculta las imágenes fuera del marco */
+    position: relative;
+}
+
+.carousel-inner {
+    display: flex; /* Hace que las imágenes se alineen horizontalmente */
+    width: 400%; /* Cada imagen ocupa 100% del ancho, como hay 4 imágenes (incluido la copia), el contenedor debe ser 400% */
+    animation: slide 16s linear infinite; /* Se mueve de forma continua */
+}
+
+.carousel img {
+    width: 100%;
+    flex: 1;
+}
+
+/* Animación del carrusel */
+@keyframes slide {
+    0%, 16% { transform: translateX(0%); }
+    36%, 48% { transform: translateX(-25%); }
+    68%, 80% { transform: translateX(-50%); }
+    100% { transform: translateX(-75%); }
 }
